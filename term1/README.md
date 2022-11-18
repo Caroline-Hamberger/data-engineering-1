@@ -34,8 +34,7 @@ I approached this from the perspective of a blogger, who likes writing articles 
 
 For example, a list of the most intelligent DC Comics characters.
 
-```
-{
+``` js
 USE superhero;
 
 ## The top most intelligent DC characters
@@ -56,6 +55,5 @@ ORDER BY ha.attribute_value
 DESC;
 
 select * from Smartest_Superheroes;
-}
 ```
 
