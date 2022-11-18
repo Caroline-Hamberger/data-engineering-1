@@ -1,7 +1,5 @@
 # Term project 1
-### by: Caroline Hamberger
-
-
+**by: Caroline Hamberger**
 
 ## OPERATIONAL LAYER
 
