@@ -1,7 +1,7 @@
 # Term project 1
 **by: Caroline Hamberger**
 
-## OPERATIONAL LAYER
+### OPERATIONAL LAYER
 
 **Goals:**
 - Create an operational data layer in MySQL. 
