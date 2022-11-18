@@ -25,4 +25,4 @@ The .mwb model can be found [here](https://github.com/Caroline-Hamberger/data-en
 
 Here is what the model looks like:
 
-![hamberger_model]([hamberger_model.png](https://github.com/Caroline-Hamberger/data-engineering-1/blob/main/term1/hamberger_model.png))
+![hamberger_model](https://github.com/Caroline-Hamberger/data-engineering-1/blob/main/term1/hamberger_model.png)
