@@ -1,7 +1,11 @@
-# data-engineering-1
-
 ### Term project 1
-#### Gabriella Zsiros
-#### Data Engineering 1 
+## by: Caroline Hamberger
 
-## 1. About the Data:
+## OPERATIONAL LAYER
+
+**Goals:**
+- Create an operational data layer in MySQL. 
+- Import a relational data set of your choosing into your local instance. 
+- Find a data which makes sense to be transformed in analytical data layer for further analytics.
+
+The data I imported can be found 
