@@ -26,3 +26,36 @@ The .mwb model can be found [here](https://github.com/Caroline-Hamberger/data-en
 Here is what the model looks like:
 
 ![hamberger_model](https://github.com/Caroline-Hamberger/data-engineering-1/blob/main/term1/hamberger_model.png)
+
+**Analysis:**
+The code for the following analysis can be found here.
+
+I approached this from the perspective of a blogger, who likes writing articles about favrious comic book figures. They therefore would be interested in creating "top 10" lists or similar, to then be able to adequately write about these characters.
+
+For example, a list of the most intelligent DC Comics characters.
+
+```
+{
+USE superhero;
+
+## The top most intelligent DC characters
+DROP VIEW IF EXISTS `Smartest_Superheroes`;
+CREATE VIEW `Smartest_Superheroes` AS
+SELECT
+s.id,
+s.superhero_name,
+p.publisher_name,
+ha.attribute_value
+FROM superhero s
+INNER JOIN publisher p ON s.publisher_id = p.id
+LEFT JOIN hero_attribute ha ON s.id = ha.hero_id
+LEFT JOIN attribute a ON ha.attribute_id = a.id
+WHERE p.id = (4) AND a.id = 1 AND attribute_value = 100
+GROUP BY s.id, s.superhero_name, p.publisher_name
+ORDER BY ha.attribute_value
+DESC;
+
+select * from Smartest_Superheroes;
+}
+```
+
