@@ -1,4 +1,4 @@
-## Creating a denormalized data layer focusing on the names and powers of superheroes
+# Creating a denormalized data layer focusing on the names and powers of superheroes
 DROP PROCEDURE IF EXISTS HeroPowers;
 DELIMITER //
 
@@ -25,5 +25,4 @@ BEGIN
 END //
 DELIMITER ;
 
-	
-CALL HeroPowers();
+SELECT * FROM hero_powers;
