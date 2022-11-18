@@ -75,7 +75,7 @@ select distinct * from Elemental_Powers;
 
 There are a few more examples in the actual code file, including a stored procedure. Earlier in the code, I created a list of the top 10 superheroes (by total attribute scores) who have fire-based powers. The following procedure allows our blogger to type in any of the ten superheroes and find out which fire-based superpower they control.
 
-```sql
+```mysql
 DROP PROCEDURE IF EXISTS Elemental_Heroes;
 DELIMITER $$
 CREATE PROCEDURE Elemental_Heroes(
