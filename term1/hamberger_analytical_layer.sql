@@ -12,13 +12,14 @@ BEGIN
 	   s.superhero_name AS HeroName, 
 	   hp.power_id AS PowerID, 
 	   sp.power_name AS Power,
-	   ha.hero_id AS HeroID
+	   ha.hero_id AS HeroID,
+       	   ha.attribute_value AS TotalAttributes
 	FROM
 		superhero s
 	INNER JOIN hero_attribute ha ON s.id = ha.hero_id
 	INNER JOIN hero_power hp ON s.id = hp.hero_id
 	INNER JOIN superpower sp ON hp.power_id = sp.id
-		GROUP BY s.id, s.superhero_name, sp.power_name
+		GROUP BY s.id, s.superhero_name, sp.power_name, ha.attribute_value
 		ORDER BY SUM(ha.attribute_value)
 		DESC;
 
