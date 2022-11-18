@@ -112,6 +112,10 @@ BEGIN
     
 END$$
 DELIMITER ;
+
+## Example output requests
+CALL Elemental_Heroes("Ardina", @output);
+
+CALL Elemental_Heroes("Vegeta", @output);
 ```
 
-For example, the code ```sql CALL Elemental_Heroes("Ardina", @output);```
