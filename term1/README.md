@@ -56,3 +56,18 @@ DESC;
 select * from Smartest_Superheroes;
 ```
 
+That same blogger might also want to get an overview of all the superpowers that these characters have that pertain to the four elements (water, fire, earth, and wind). They can do this using the superpower table.
+
+``` sql
+DROP VIEW IF EXISTS `Elemnetal_Powers`;
+CREATE VIEW `Elemnetal_Powers` AS
+SELECT
+sp.power_name
+FROM superhero s
+LEFT JOIN hero_power hp ON s.id = hp.hero_id
+LEFT JOIN superpower sp ON hp.power_id = sp.id
+WHERE sp.id IN (5,11,56,72,75,79,90,104,117,129,140,141,155)
+;
+
+select distinct * from Elemnetal_Powers;
+```
