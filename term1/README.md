@@ -34,10 +34,9 @@ I approached this from the perspective of a blogger, who likes writing articles 
 
 For example, a list of the most intelligent DC Comics characters.
 
-``` js
+``` sql
 USE superhero;
 
-## The top most intelligent DC characters
 DROP VIEW IF EXISTS `Smartest_Superheroes`;
 CREATE VIEW `Smartest_Superheroes` AS
 SELECT
