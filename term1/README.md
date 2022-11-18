@@ -75,7 +75,7 @@ select distinct * from Elemental_Powers;
 
 There are a few more examples in the actual code file, including a stored procedure. Earlier in the code, I created a list of the top 10 superheroes (by total attribute scores) who have fire-based powers. The following procedure allows our blogger to type in any of the ten superheroes and find out which fire-based superpower they control.
 
-```mysql
+```sql
 DROP PROCEDURE IF EXISTS Elemental_Heroes;
 DELIMITER $$
 CREATE PROCEDURE Elemental_Heroes(
@@ -118,4 +118,10 @@ CALL Elemental_Heroes("Ardina", @output);
 
 CALL Elemental_Heroes("Vegeta", @output);
 ```
+
+### 3 Analytical Layer
+
+**Goals:**
+- Design a denormalized data structure using the operational layer. 
+- Create table in MySQL for this structure
 
