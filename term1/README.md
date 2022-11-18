@@ -28,7 +28,7 @@ Here is what the model looks like:
 ![hamberger_model](https://github.com/Caroline-Hamberger/data-engineering-1/blob/main/term1/hamberger_model.png)
 
 **Analysis:**
-The code for the following analysis can be found here.
+The code for the following analysis can be found [here](https://github.com/Caroline-Hamberger/data-engineering-1/blob/main/term1/hamberger_analytics.sql).
 
 I approached this from the perspective of a blogger, who likes writing articles about favrious comic book figures. They therefore would be interested in creating "top 10" lists or similar, to then be able to adequately write about these characters.
 
