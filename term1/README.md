@@ -32,7 +32,7 @@ The code for the following analysis can be found here.
 
 I approached this from the perspective of a blogger, who likes writing articles about favrious comic book figures. They therefore would be interested in creating "top 10" lists or similar, to then be able to adequately write about these characters.
 
-For example, a list of the most intelligent DC Comics characters.
+For example, a list of the most intelligent DC Comics characters. To garner "intelligence", one can use the "attribute" table, where several important attributes for heros are listed (e.g. Intelligence, Strength, etc.). "attribute.id = 1" specifies that this view should only take into account Intelligence scores.
 
 ``` sql
 USE superhero;
