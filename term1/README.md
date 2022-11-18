@@ -22,3 +22,7 @@ The script for importing the data is [hamberger_data.sql](https://github.com/Car
 
 I firstly created a model to get a good overview of the tables included in the schema.
 The .mwb model can be found [here](https://github.com/Caroline-Hamberger/data-engineering-1/blob/main/term1/hamberger_model.mwb).
+
+Here is what the model looks like:
+
+![hamberger_model]([hamberger_model.png](https://github.com/Caroline-Hamberger/data-engineering-1/blob/main/term1/hamberger_model.png))
