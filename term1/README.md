@@ -159,3 +159,12 @@ DELIMITER ;
 
 SELECT * FROM hero_powers;
 ```
+
+### 4 ETL Pipeline
+
+**Goals:**
+- Create an ETL pipeline using Triggers, Stored procedures. 
+- Make sure to demonstrate every element of ETL (Extract, Transform, Load)
+
+The code for the ETL pipline can be found here.
+
