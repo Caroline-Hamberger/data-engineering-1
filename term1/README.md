@@ -59,8 +59,8 @@ select * from Smartest_Superheroes;
 That same blogger might also want to get an overview of all the superpowers that these characters have that pertain to the four elements (water, fire, earth, and wind). They can do this using the superpower table.
 
 ``` sql
-DROP VIEW IF EXISTS `Elemnetal_Powers`;
-CREATE VIEW `Elemnetal_Powers` AS
+DROP VIEW IF EXISTS `Elemental_Powers`;
+CREATE VIEW `Elemental_Powers` AS
 SELECT
 sp.power_name
 FROM superhero s
@@ -69,5 +69,49 @@ LEFT JOIN superpower sp ON hp.power_id = sp.id
 WHERE sp.id IN (5,11,56,72,75,79,90,104,117,129,140,141,155)
 ;
 
-select distinct * from Elemnetal_Powers;
+select distinct * from Elemental_Powers;
 ```
+
+
+There are a few more examples in the actual code file, including a stored procedure. Earlier in the code, I created a list of the top 10 superheroes (by total attribute scores) who have fire-based powers. The following procedure allows our blogger to type in any of the ten superheroes and find out which fire-based superpower they control.
+
+```sql
+DROP PROCEDURE IF EXISTS Elemental_Heroes;
+DELIMITER $$
+CREATE PROCEDURE Elemental_Heroes(
+IN HeroName VARCHAR(250),
+OUT ElementalCat VARCHAR(250))
+BEGIN
+	DECLARE credit DECIMAL DEFAULT 0;
+
+	SELECT 
+	s.id,
+	s.superhero_name,
+	sp.power_name,
+	SUM(ha.attribute_value) AS total_attributes
+			FROM superhero s
+				LEFT JOIN hero_attribute ha ON s.id = ha.hero_id
+				LEFT JOIN attribute a ON ha.attribute_id = a.id
+				LEFT JOIN hero_power hp ON s.id = hp.hero_id
+				LEFT JOIN superpower sp ON hp.power_id = sp.id
+					WHERE sp.id IN (56,79,90,104,140) AND s.superhero_name = HeroName
+					GROUP BY s.id, s.superhero_name, sp.power_name
+					ORDER BY SUM(ha.attribute_value)
+					DESC
+					LIMIT 10;
+
+	IF s.superhero_name in ("Supergirl","Superman","Ardina") THEN
+		SET ElementalCat = "Fire and/or Heat Resistance";
+	ELSEIF s.superhero_name in ("Living Tribunal", "Spectre","Mister Mxyzptlk", "Vegeta") THEN
+		SET ElementalCat = "Fire Control";
+	ELSEIF s.superhero_name in ("Spectre", "Vegeta") THEN
+		SET ElementalCat = "Heat Generation";
+	ELSE
+		SET ElementalCat = "No Fire-Based Power";
+	END IF;
+    
+END$$
+DELIMITER ;
+```
+
+For example, the code ```sql CALL Elemental_Heroes("Ardina", @output);```
