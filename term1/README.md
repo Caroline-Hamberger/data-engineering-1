@@ -10,3 +10,4 @@
 
 The data I imported was originally sourced here: https://github.com/bbrumm/databasestar/tree/main/sample_databases/sample_db_superheroes/mysql
 
+A note, in case you are a fan of comic books: While the schema is named "superheroes", the data itself includes a number of villains, and anti-heroes and would therefore be better suited referred to as "comic book characters". Since this happens to be a terribly inconvenient naming convention, I am sticking with the "superheroes" label.
