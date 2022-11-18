@@ -1,7 +1,7 @@
 # Term project 1
 **by: Caroline Hamberger**
 
-### 1 OPERATIONAL LAYER
+### 1 Operational Layer
 
 **Goals:**
 - Create an operational data layer in MySQL. 
@@ -122,6 +122,40 @@ CALL Elemental_Heroes("Vegeta", @output);
 ### 3 Analytical Layer
 
 **Goals:**
-- Design a denormalized data structure using the operational layer. 
+- Design a denormalized data structure using the operational layer
 - Create table in MySQL for this structure
 
+The code for the analytical layer can be found [here](https://github.com/Caroline-Hamberger/data-engineering-1/blob/main/term1/hamberger_analytical_layer.sql).
+My focus was on creating a denormalized data layer that allowed for the stored procedure to be run. It includes all necessary data without the excess.
+
+``` sql
+# Creating a denormalized data layer focusing on the names and powers of superheroes
+DROP PROCEDURE IF EXISTS HeroPowers;
+DELIMITER //
+
+CREATE PROCEDURE HeroPowers()
+BEGIN
+
+	DROP TABLE IF EXISTS hero_powers;
+
+	CREATE TABLE hero_powers AS
+	SELECT  
+	   s.superhero_name AS HeroName, 
+	   hp.power_id AS PowerID, 
+	   sp.power_name AS Power,
+	   ha.hero_id AS HeroID,
+	   ha.attribute_value AS TotalAttributes
+	FROM
+		superhero s
+	INNER JOIN hero_attribute ha ON s.id = ha.hero_id
+	INNER JOIN hero_power hp ON s.id = hp.hero_id
+	INNER JOIN superpower sp ON hp.power_id = sp.id
+		GROUP BY s.id, s.superhero_name, sp.power_name, ha.attribute_value
+		ORDER BY SUM(ha.attribute_value)
+		DESC;
+
+END //
+DELIMITER ;
+
+SELECT * FROM hero_powers;
+```
