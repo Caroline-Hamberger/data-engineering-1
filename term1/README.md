@@ -173,7 +173,7 @@ The code for the ETL pipline can be found [here](https://github.com/Caroline-Ham
 - Loading: Inserting into the hero_powers table
 
 
-## 5 Data Mart
+### 5 Data Mart
 
 **Goals:**
 - Create Views as data marts.
