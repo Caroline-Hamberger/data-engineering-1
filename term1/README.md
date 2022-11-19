@@ -12,7 +12,7 @@ The data I imported was originally sourced [here](https://github.com/bbrumm/data
 
 A note, in case you are a fan of comic books: While the schema is named "superheroes", the data itself includes a number of villains, and anti-heroes and would therefore be better suited referred to as "comic book characters". Since this happens to be a terribly inconvenient naming convention, I am sticking with the "superheroes" label.
 
-The script for importing the data is [hamberger_data.sql](https://github.com/Caroline-Hamberger/data-engineering-1/blob/main/term1/hamberger_data.sql)
+The script for importing the data is [hamberger_data.sql](https://github.com/Caroline-Hamberger/data-engineering-1/blob/main/term1/01_hamberger_data.sql)
 
 ### 2 Analytics
 
@@ -21,14 +21,14 @@ The script for importing the data is [hamberger_data.sql](https://github.com/Car
 - Plan how the analytical data layer, ETL, Data Mart would look like to support these analytics.
 
 I firstly created a model to get a good overview of the tables included in the schema.
-The .mwb model can be found [here](https://github.com/Caroline-Hamberger/data-engineering-1/blob/main/term1/hamberger_model.mwb).
+The .mwb model can be found [here](https://github.com/Caroline-Hamberger/data-engineering-1/blob/main/term1/02.1_hamberger_model.mwb).
 
 Here is what the model looks like:
 
-![hamberger_model](https://github.com/Caroline-Hamberger/data-engineering-1/blob/main/term1/hamberger_model.png)
+![hamberger_model](https://github.com/Caroline-Hamberger/data-engineering-1/blob/main/term1/02.2_hamberger_model.png)
 
 **Analysis:**
-The code for the following analysis can be found [here](https://github.com/Caroline-Hamberger/data-engineering-1/blob/main/term1/hamberger_analytics.sql).
+The code for the following analysis can be found [here](https://github.com/Caroline-Hamberger/data-engineering-1/blob/main/term1/02.3_hamberger_analytics.sql).
 
 I approached this from the perspective of a blogger, who likes writing articles about favrious comic book figures. They therefore would be interested in creating "top 10" lists or similar, to then be able to adequately write about these characters.
 
@@ -125,7 +125,7 @@ CALL Elemental_Heroes("Vegeta", @output);
 - Design a denormalized data structure using the operational layer
 - Create table in MySQL for this structure
 
-The code for the analytical layer can be found [here](https://github.com/Caroline-Hamberger/data-engineering-1/blob/main/term1/hamberger_analytical_layer.sql).
+The code for the analytical layer can be found [here](https://github.com/Caroline-Hamberger/data-engineering-1/blob/main/term1/03_hamberger_analytical_layer.sql).
 My focus was on creating a denormalized data layer that allowed for the stored procedure to be run. It includes all necessary data without the excess.
 
 ``` sql
@@ -166,7 +166,7 @@ SELECT * FROM hero_powers;
 - Create an ETL pipeline using Triggers, Stored procedures. 
 - Make sure to demonstrate every element of ETL (Extract, Transform, Load)
 
-The code for the ETL pipline can be found [here](https://github.com/Caroline-Hamberger/data-engineering-1/blob/main/term1/hamberger_etl.sql).
+The code for the ETL pipline can be found [here](https://github.com/Caroline-Hamberger/data-engineering-1/blob/main/term1/04_hamberger_etl.sql).
 
 - Extracting: I extracted by joining the tables in the first part of code.
 - Transforming: The transformation is a simple change of superhero_name to uppercase.
@@ -178,7 +178,7 @@ The code for the ETL pipline can be found [here](https://github.com/Caroline-Ham
 **Goals:**
 - Create Views as data marts.
 
-I've created all of my [analytical work](https://github.com/Caroline-Hamberger/data-engineering-1/blob/main/term1/hamberger_analytics.sql) as view. Here is some of that code again.
+I've created all of my [analytics section](https://github.com/Caroline-Hamberger/data-engineering-1/blob/main/term1/02.3_hamberger_analytics.sql) as view. Here is some of that code again.
 
 ``` sql
 ## The top most intelligent DC characters
