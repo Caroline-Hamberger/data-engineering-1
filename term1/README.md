@@ -166,5 +166,37 @@ SELECT * FROM hero_powers;
 - Create an ETL pipeline using Triggers, Stored procedures. 
 - Make sure to demonstrate every element of ETL (Extract, Transform, Load)
 
-The code for the ETL pipline can be found here.
+The code for the ETL pipline can be found [here](https://github.com/Caroline-Hamberger/data-engineering-1/blob/main/term1/hamberger_etl.sql).
 
+- Extracting: I extracted by joining the tables in the first part of code.
+- Transforming: The transformation is a simple change of superhero_name to uppercase.
+- Loading: Inserting into the hero_powers table
+
+
+## 5 Data Mart
+
+**Goals:**
+- Create Views as data marts.
+
+I've created all of my [analytical work](https://github.com/Caroline-Hamberger/data-engineering-1/blob/main/term1/hamberger_analytics.sql) as view. Here is some of that code again.
+
+``` sql
+## The top most intelligent DC characters
+DROP VIEW IF EXISTS `Smartest_Superheroes`;
+CREATE VIEW `Smartest_Superheroes` AS
+SELECT
+s.id,
+s.superhero_name,
+p.publisher_name,
+ha.attribute_value
+FROM superhero s
+INNER JOIN publisher p ON s.publisher_id = p.id
+LEFT JOIN hero_attribute ha ON s.id = ha.hero_id
+LEFT JOIN attribute a ON ha.attribute_id = a.id
+WHERE p.id = (4) AND a.id = 1 AND attribute_value = 100
+GROUP BY s.id, s.superhero_name, p.publisher_name
+ORDER BY ha.attribute_value
+DESC;
+
+select * from Smartest_Superheroes;
+```
